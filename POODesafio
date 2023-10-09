@@ -1,0 +1,58 @@
+// Classe abstrata Dispositivo
+abstract class Dispositivo {
+    // Métodos abstratos que serão implementados pelas subclasses
+    abstract void iniciarOperacao();
+    abstract void finalizarOperacao();
+    abstract void alternarFuncao();
+}
+
+// Subclasse ReprodutorMusical
+class ReprodutorMusical extends Dispositivo {
+    @Override
+    void iniciarOperacao() {
+        System.out.println("Tocando música...");
+    }
+
+    @Override
+    void finalizarOperacao() {
+        System.out.println("Pausando música...");
+    }
+
+    @Override
+    void alternarFuncao() {
+        System.out.println("Selecionando a próxima música...");
+    }
+}
+
+// Subclasse Telefone
+class Telefone extends Dispositivo {
+    @Override
+    void iniciarOperacao() {
+        System.out.println("Fazendo uma ligação...");
+    }
+
+    @Override
+    void finalizarOperacao() {
+        System.out.println("Atendendo/Encerrando uma ligação...");
+    }
+
+    @Override
+    void alternarFuncao() {
+        System.out.println("Iniciando o correio de voz...");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Testando os dispositivos
+        Dispositivo meuReprodutor = new ReprodutorMusical();
+        meuReprodutor.iniciarOperacao();   // Deve imprimir: "Tocando música..."
+        meuReprodutor.finalizarOperacao(); // Deve imprimir: "Pausando música..."
+        meuReprodutor.alternarFuncao();    // Deve imprimir: "Selecionando a próxima música..."
+
+        Dispositivo meuTelefone = new Telefone();
+        meuTelefone.iniciarOperacao();     // Deve imprimir: "Fazendo uma ligação..."
+        meuTelefone.finalizarOperacao();   // Deve imprimir: "Atendendo/Encerrando uma ligação..."
+        meuTelefone.alternarFuncao();      // Deve imprimir: "Iniciando o correio de voz..."
+    }
+}
